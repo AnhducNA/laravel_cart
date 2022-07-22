@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Cart;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
 class CartController extends Controller
 {
     function index()
@@ -13,13 +14,15 @@ class CartController extends Controller
         // dd($list_products);
         return view('index', compact('list_products'));
     }
-    function add($id)
+    function addCart(Request $req,  $id)
     {
         $product = DB::table('products')->where('id', $id)->first();
         if (isset($product)) {
-            dd($product);
-        } else {
-            return 0;
+            $oldCart = Session('Cart') ? Session('Cart') : null;
+            $newCart = new Cart($oldCart);
+            $newCart->addCart($product, $id);
+            $req->session()->put('Cart', $newCart);
+            dd($newCart);
         }
     }
 }

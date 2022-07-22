@@ -14,4 +14,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/','App\Http\Controllers\CartController@index');
-Route::get('/cart/add/{id}','App\Http\Controllers\CartController@add')->name('addCart');
+Route::get('/cart/add/{id}','App\Http\Controllers\CartController@addCart')->name('addCart');
