@@ -6,6 +6,7 @@ use App\Cart;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+
 class CartController extends Controller
 {
     function index()
@@ -18,11 +19,12 @@ class CartController extends Controller
     {
         $product = DB::table('products')->where('id', $id)->first();
         if (isset($product)) {
-            $oldCart = Session('Cart') ? Session('Cart') : null;
+            $oldCart = session('Cart') ? session('Cart') : null;
             $newCart = new Cart($oldCart);
             $newCart->addCart($product, $id);
             $req->session()->put('Cart', $newCart);
-            dd($newCart);
+            // dd(session('Cart'));
         }
+        return view('cart', compact('newCart'));
     }
 }
