@@ -94,7 +94,7 @@
                                 </a>
                                 <div class="cart-hover">
                                     <div id="change-item-cart">
-                                        <div class="select-items">
+                                        <!-- <div class="select-items">
                                             <table>
                                                 <tbody>
                                                     <tr>
@@ -127,7 +127,7 @@
                                         <div class="select-total">
                                             <span>total:</span>
                                             <h5>₫120.00</h5>
-                                        </div>
+                                        </div> -->
                                     </div>
 
                                     <div class="select-button">
@@ -359,14 +359,15 @@
     <!-- jquery -->
     <script>
         function addCart($id) {
+            console.log($id);
             $.ajax({
-                url: '',
-                type: '',
-
+                url: 'cart/add/' + $id,
+                type: 'GET',
             }).done(function(response) {
                 console.log(response);
+                $("#change-item-cart").empty();
+                $("#change-item-cart").html(response);
             });
-
         }
     </script>
 </body>
