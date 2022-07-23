@@ -5,11 +5,11 @@
         <tbody>
             @foreach($newCart->products as $item)
             <tr>
-                <td class="si-pic"><img src="assets/img/select-product-1.jpg" alt=""></td>
+                <td class="si-pic"><img src="assets/img/products/{{$item['productInfo']->img}} " alt=""></td>
                 <td class="si-text">
                     <div class="product-selected">
-                        <p>{{$item->price}}vnd x {{$item['quanty']}}</p>
-                        <h6>Kabino Bedside Table</h6>
+                        <p>{{number_format($item['productInfo']->price)}}vnd x {{$item['quanty']}}</p>
+                        <h6>{{$item['productInfo']->name}}</h6>
                     </div>
                 </td>
                 <td class="si-close">

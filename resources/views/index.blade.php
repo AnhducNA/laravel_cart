@@ -359,7 +359,7 @@
     <!-- jquery -->
     <script>
         function addCart($id) {
-            console.log($id);
+            // console.log($id);
             $.ajax({
                 url: 'cart/add/' + $id,
                 type: 'GET',
