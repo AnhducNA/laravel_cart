@@ -8,7 +8,7 @@
                 <td class="si-pic"><img src="assets/img/products/{{$item['productInfo']->img}} " alt=""></td>
                 <td class="si-text">
                     <div class="product-selected">
-                        <p>{{number_format($item['productInfo']->price)}}vnd x {{$item['quanty']}}</p>
+                        <p>{{number_format($item['productInfo']->price)}}$ x {{$item['quanty']}}</p>
                         <h6>{{$item['productInfo']->name}}</h6>
                     </div>
                 </td>

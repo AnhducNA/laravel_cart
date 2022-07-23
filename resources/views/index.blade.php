@@ -22,6 +22,12 @@
     <link rel="stylesheet" href="assets/css/jquery-ui.min.css" type="text/css">
     <link rel="stylesheet" href="assets/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+
+    <!-- include the style -->
+    <link rel="stylesheet" href="{{asset('assets/alertifyjs/css/alertify.min.css')}}">
+
+    <!-- include a theme -->
+    <link rel="stylesheet" href="{{asset('assets/alertifyjs/css/themes/default.min.css')}}">
 </head>
 
 <body>
@@ -355,6 +361,8 @@
     <script src="assets/js/jquery.slicknav.js"></script>
     <script src="assets/js/owl.carousel.min.js"></script>
     <script src="assets/js/main.js"></script>
+    <!-- include the script -->
+    <script src="{{asset('assets/alertifyjs/alertify.min.js')}}"></script>
 
     <!-- jquery -->
     <script>
@@ -367,6 +375,7 @@
                 console.log(response);
                 $("#change-item-cart").empty();
                 $("#change-item-cart").html(response);
+                alertify.success('Đã thêm 1 sản phẩm');
             });
         }
     </script>
