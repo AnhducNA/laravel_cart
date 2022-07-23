@@ -360,8 +360,8 @@
     <script>
         function addCart($id) {
             $.ajax({
-                url: '',
-                type: '',
+                url: 'cart/add/' + $id,
+                type: 'GET',
 
             }).done(function(response) {
                 console.log(response);
