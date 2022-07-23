@@ -208,7 +208,7 @@
                                         </div>
                                         <ul>
                                             <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                            <li class="quick-view"><a  href="javascript:">+ Add Cart</a></li>
+                                            <li class="quick-view"><a onclick="addCart(<?php echo $product->id; ?>)" href="javascript:">+ Add Cart</a></li>
                                             <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
                                         </ul>
                                     </div>
@@ -355,6 +355,20 @@
     <script src="assets/js/jquery.slicknav.js"></script>
     <script src="assets/js/owl.carousel.min.js"></script>
     <script src="assets/js/main.js"></script>
+
+    <!-- jquery -->
+    <script>
+        function addCart($id) {
+            $.ajax({
+                url: '',
+                type: '',
+
+            }).done(function(response) {
+                console.log(response);
+            });
+
+        }
+    </script>
 </body>
 
 </html>
