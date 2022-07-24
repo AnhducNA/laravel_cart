@@ -383,9 +383,8 @@
                 alertify.success('Đã thêm sản phẩm');
             });
         }
-
         $('#change-item-cart').on('click', '.si-close i', function() {
-            console.log($(this).attr('data-idCart'));
+            // console.log($(this).attr('data-idCart'));
             $.ajax({
                 url: 'cart/delete/' + $(this).attr('data-idCart'),
                 type: 'GET',

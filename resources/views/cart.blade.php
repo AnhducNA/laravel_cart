@@ -1,4 +1,4 @@
-@if(isset($newCart))
+@if(!empty($newCart))
 <div class="select-items">
     <table>
         <tbody>
@@ -20,12 +20,12 @@
     </table>
 </div>
 <div class="select-total">
-    <div class="box">
-        <span>Total quanty :</span>
+    <div class="box" style="display:block ;">
+        <span style="float: none;">Total quanty :</span>
         <h5>{{number_format($newCart->totalQuanty)}}</h5>
     </div>
-    <div class="box">
-        <span>Total price :</span>
+    <div class="box" style="display:block ;">
+        <span style="float: none;">Total price :</span>
         <h5>{{number_format($newCart->totalPrice)}}</h5>
     </div>
 </div>

@@ -33,10 +33,12 @@ class CartController extends Controller
         $newCart->deleteItemCart($id);
         if (count($newCart->products) > 0) {
             $req->session()->put('Cart', $newCart);
-        } else {
-            $req->session()->forget('cart');
+        } else if (count($newCart->products) == 0) {
+            $req->session()->remove('Cart');
+            $newCart->totalPrice == 0;
+            $newCart->totalQuanty == 0;
         }
-        // dd(session('Cart'));
+        echo count($newCart->products);
         return view('cart', compact('newCart'));
     }
 }
