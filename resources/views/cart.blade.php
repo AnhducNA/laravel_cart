@@ -20,7 +20,13 @@
     </table>
 </div>
 <div class="select-total">
-    <span>total:</span>
-    <h5>{{number_format($newCart->totalPrice)}}</h5>
+    <div class="box">
+        <span>Total quanty :</span>
+        <h5>{{number_format($newCart->totalQuanty)}}</h5>
+    </div>
+    <div class="box">
+        <span>Total price :</span>
+        <h5>{{number_format($newCart->totalPrice)}}</h5>
+    </div>
 </div>
 @endif

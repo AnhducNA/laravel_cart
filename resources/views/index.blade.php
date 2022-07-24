@@ -380,12 +380,21 @@
                 // console.log(response);
                 $("#change-item-cart").empty();
                 $("#change-item-cart").html(response);
-                alertify.success('Đã thêm 1 sản phẩm');
+                alertify.success('Đã thêm sản phẩm');
             });
         }
-        
+
         $('#change-item-cart').on('click', '.si-close i', function() {
             console.log($(this).attr('data-idCart'));
+            $.ajax({
+                url: 'cart/delete/' + $(this).attr('data-idCart'),
+                type: 'GET',
+            }).done(function(response) {
+                // console.log(response);
+                $("#change-item-cart").empty();
+                $("#change-item-cart").html(response);
+                alertify.success('Đã xoá sản phẩm');
+            });
         });
     </script>
 </body>
