@@ -28,6 +28,11 @@
 
     <!-- include a theme -->
     <link rel="stylesheet" href="{{asset('assets/alertifyjs/css/themes/default.min.css')}}">
+    <style>
+        #change-item-cart table tr td.si-pic img {
+            width: 70px;
+        }
+    </style>
 </head>
 
 <body>

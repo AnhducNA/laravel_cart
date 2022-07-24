@@ -8,7 +8,7 @@ class Cart
     public $totalPrice = 0;
     public $totalQuanty = 0;
 
-    public function __constant($cart)
+    public function __construct($cart)
     {
         if ($cart) {
             $this->products = $cart->products;
