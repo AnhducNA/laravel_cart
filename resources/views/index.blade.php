@@ -377,12 +377,16 @@
                 url: 'cart/add/' + $id,
                 type: 'GET',
             }).done(function(response) {
-                console.log(response);
+                // console.log(response);
                 $("#change-item-cart").empty();
                 $("#change-item-cart").html(response);
                 alertify.success('Đã thêm 1 sản phẩm');
             });
         }
+        
+        $('#change-item-cart').on('click', '.si-close i', function() {
+            console.log($(this).attr('data-idCart'));
+        });
     </script>
 </body>
 

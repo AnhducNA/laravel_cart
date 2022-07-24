@@ -31,4 +31,7 @@ class Cart
         $this->totalPrice += $product->price;
         $this->totalQuanty++;
     }
+    public function DeleteItemCart(){
+        
+    }
 }

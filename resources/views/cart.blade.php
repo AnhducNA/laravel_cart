@@ -1,5 +1,4 @@
 @if(isset($newCart))
-
 <div class="select-items">
     <table>
         <tbody>
@@ -13,7 +12,7 @@
                     </div>
                 </td>
                 <td class="si-close">
-                    <i class="ti-close"></i>
+                    <i class="ti-close" data-idCart="{{$item['productInfo']->id}}"></i>
                 </td>
             </tr>
             @endforeach
