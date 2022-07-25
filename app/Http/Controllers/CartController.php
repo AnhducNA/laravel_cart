@@ -38,7 +38,7 @@ class CartController extends Controller
             $newCart->totalPrice == 0;
             $newCart->totalQuanty == 0;
         }
-        echo count($newCart->products);
+        // echo count($newCart->products);
         return view('cart', compact('newCart'));
     }
 }
