@@ -1,7 +1,3 @@
-<?php
-$Cart = session('Cart');
-
-?>
 @if(!empty(session('Cart')))
 <div class="select-items">
     <table>
@@ -24,13 +20,11 @@ $Cart = session('Cart');
     </table>
 </div>
 <div class="select-total">
-    <div class="box" style="display:block ;">
-        <span style="float: none;">Total quanty :</span>
-        <h5>{{number_format(session('Cart')->totalQuanty)}}</h5>
-    </div>
-    <div class="box" style="display:block ;">
-        <span style="float: none;">Total price :</span>
+    <div class="box">
+        <span>Total price :</span>
         <h5>{{number_format(session('Cart')->totalPrice)}}</h5>
+        <!-- #total-quantyCart -->
+        <input hidden type="number" name="" id="total-quantyCart" value="{{number_format(session('Cart')->totalQuanty)}}">
     </div>
 </div>
 @endif

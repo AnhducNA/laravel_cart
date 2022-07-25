@@ -41,4 +41,8 @@ class CartController extends Controller
         // echo count($newCart->products);
         return view('cart', compact('newCart'));
     }
+    function viewListCart()
+    {
+        return view('list-info');
+    }
 }

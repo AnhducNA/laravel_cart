@@ -94,55 +94,57 @@
                     </div>
                     <div class="col-lg-3 text-right col-md-3">
                         <ul class="nav-right">
-                            <li class="heart-icon"><a href="#">
+                            <li class="heart-icon">
+                                <a href="#">
                                     <i class="icon_heart_alt"></i>
-                                    <span>1</span>
+                                    <span>3</span>
                                 </a>
                             </li>
-                            <li class="cart-icon"><a href="#">
+                            <li class="cart-icon">
+                                <a href="#">
                                     <i class="icon_bag_alt"></i>
-                                    <span>3</span>
+                                    @if(!empty(session('Cart')))
+                                    <span id="total-quantyCart-show"> {{session('Cart')->totalQuanty}} </span>
+                                    @elseif(session('Cart') == 0)
+                                    <span id="total-quantyCart-show"> 0 </span>
+                                    @endif
                                 </a>
                                 <div class="cart-hover">
                                     <div id="change-item-cart">
-                                        <!-- <div class="select-items">
+                                        @if(!empty(session('Cart')))
+                                        <div class="select-items">
                                             <table>
                                                 <tbody>
+                                                    @foreach(session('Cart')->products as $item)
                                                     <tr>
-                                                        <td class="si-pic"><img src="assets/img/select-product-1.jpg" alt=""></td>
+                                                        <td class="si-pic"><img src="assets/img/products/{{$item['productInfo']->img}} " alt=""></td>
                                                         <td class="si-text">
                                                             <div class="product-selected">
-                                                                <p>₫60.00 x 1</p>
-                                                                <h6>Kabino Bedside Table</h6>
+                                                                <p>{{number_format($item['productInfo']->price)}}$ x {{$item['quanty']}}</p>
+                                                                <h6>{{$item['productInfo']->name}}</h6>
                                                             </div>
                                                         </td>
                                                         <td class="si-close">
-                                                            <i class="ti-close"></i>
+                                                            <i class="ti-close" data-idCart="{{$item['productInfo']->id}}"></i>
                                                         </td>
                                                     </tr>
-                                                    <tr>
-                                                        <td class="si-pic"><img src="assets/img/select-product-2.jpg" alt=""></td>
-                                                        <td class="si-text">
-                                                            <div class="product-selected">
-                                                                <p>₫60.00 x 1</p>
-                                                                <h6>Kabino Bedside Table</h6>
-                                                            </div>
-                                                        </td>
-                                                        <td class="si-close">
-                                                            <i class="ti-close"></i>
-                                                        </td>
-                                                    </tr>
+                                                    @endforeach
                                                 </tbody>
                                             </table>
                                         </div>
                                         <div class="select-total">
-                                            <span>total:</span>
-                                            <h5>₫120.00</h5>
-                                        </div> -->
+                                            <div class="box">
+                                                <span>Total price :</span>
+                                                <h5>{{number_format(session('Cart')->totalPrice)}}</h5>
+                                                <!-- #total-quantyCart -->
+                                                <input hidden type="number" name="" id="total-quantyCart" value="{{number_format(session('Cart')->totalQuanty)}}">
+                                            </div>
+                                        </div>
+                                        @endif
                                     </div>
 
                                     <div class="select-button">
-                                        <a href="#" class="primary-btn view-card">VIEW CARD</a>
+                                        <a href="{{url('cart/list')}}" class="primary-btn view-card">VIEW CARD</a>
                                         <a href="#" class="primary-btn checkout-btn">CHECK OUT</a>
                                     </div>
                                 </div>
@@ -377,9 +379,7 @@
                 url: 'cart/add/' + $id,
                 type: 'GET',
             }).done(function(response) {
-                // console.log(response);
-                $("#change-item-cart").empty();
-                $("#change-item-cart").html(response);
+                renderCart(response);
                 alertify.success('Đã thêm sản phẩm');
             });
         }
@@ -389,12 +389,19 @@
                 url: 'cart/delete/' + $(this).attr('data-idCart'),
                 type: 'GET',
             }).done(function(response) {
-                // console.log(response);
-                $("#change-item-cart").empty();
-                $("#change-item-cart").html(response);
+                renderCart(response);
                 alertify.success('Đã xoá sản phẩm');
             });
         });
+
+        function renderCart(response) {
+            // console.log(response);
+            $('#change-item-cart').empty();
+            $('#change-item-cart').html(response);
+            $('#total-quantyCart-show').text(function() {
+                return $('#total-quantyCart').val();
+            })
+        }
     </script>
 </body>
 

@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'App\Http\Controllers\CartController@index');
 Route::get('/cart/add/{id}', 'App\Http\Controllers\CartController@addCart');
 Route::get('/cart/delete/{id}', 'App\Http\Controllers\CartController@deleteItemCart');
+Route::get('/cart/list', 'App\Http\Controllers\CartController@viewListCart');
 Route::get('/check', function () {
     if (!empty(session('Cart'))) {
         echo "<pre>";
