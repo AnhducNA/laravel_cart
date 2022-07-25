@@ -1,8 +1,12 @@
-@if(!empty($newCart))
+<?php
+$Cart = session('Cart');
+
+?>
+@if(!empty(session('Cart')))
 <div class="select-items">
     <table>
         <tbody>
-            @foreach($newCart->products as $item)
+            @foreach(session('Cart')->products as $item)
             <tr>
                 <td class="si-pic"><img src="assets/img/products/{{$item['productInfo']->img}} " alt=""></td>
                 <td class="si-text">
@@ -22,11 +26,11 @@
 <div class="select-total">
     <div class="box" style="display:block ;">
         <span style="float: none;">Total quanty :</span>
-        <h5>{{number_format($newCart->totalQuanty)}}</h5>
+        <h5>{{number_format(session('Cart')->totalQuanty)}}</h5>
     </div>
     <div class="box" style="display:block ;">
         <span style="float: none;">Total price :</span>
-        <h5>{{number_format($newCart->totalPrice)}}</h5>
+        <h5>{{number_format(session('Cart')->totalPrice)}}</h5>
     </div>
 </div>
 @endif
