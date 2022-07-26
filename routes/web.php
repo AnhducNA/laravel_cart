@@ -24,6 +24,6 @@ Route::get('/check', function () {
         echo "<pre>";
         print_r(session('Cart'));
         echo "------------";
-        print_r(session('Cart')->products);
+        // print_r(session('Cart')->products);
     }
 });
