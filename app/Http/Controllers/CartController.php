@@ -43,6 +43,6 @@ class CartController extends Controller
     }
     function viewListCart()
     {
-        return view('list-info');
+        return view('list');
     }
 }
