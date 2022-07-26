@@ -45,4 +45,20 @@ class CartController extends Controller
     {
         return view('list');
     }
+
+    function deleteItemListCart(Request $req, $id)
+    {
+        $oldCart = session('Cart') ? session('Cart') : null;
+        $newCart = new Cart($oldCart);
+        $newCart->deleteItemCart($id);
+        if (count($newCart->products) > 0) {
+            $req->session()->put('Cart', $newCart);
+        } else if (count($newCart->products) == 0) {
+            $req->session()->remove('Cart');
+            $newCart->totalPrice == 0;
+            $newCart->totalQuanty == 0;
+        }
+        // echo count($newCart->products);
+        return view('list-cart');
+    }
 }

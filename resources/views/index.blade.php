@@ -1,10 +1,6 @@
 @extends('layouts.laravel_cart')
-@section('include-the-link')
-<!-- include the style -->
-<link rel="stylesheet" href="{{asset('assets/alertifyjs/css/alertify.min.css')}}">
+@section('include-the-css')
 
-<!-- include a theme -->
-<link rel="stylesheet" href="{{asset('assets/alertifyjs/css/themes/default.min.css')}}">
 <style>
     #change-item-cart table tr td.si-pic img {
         width: 70px;
@@ -120,7 +116,7 @@
                                 </div>
 
                                 <div class="select-button">
-                                    <a href="{{url('cart/list')}}" class="primary-btn view-card">VIEW CARD</a>
+                                    <a href="{{route('listCart')}}" class="primary-btn view-card">VIEW CARD</a>
                                     <a href="#" class="primary-btn checkout-btn">CHECK OUT</a>
                                 </div>
                             </div>
@@ -334,8 +330,7 @@
 <!-- Footer Section End -->
 @endsection
 @section('include-the-script')
-<!-- include the script -->
-<script src="{{asset('assets/alertifyjs/alertify.min.js')}}"></script>
+
 
 <!-- jquery -->
 <script>

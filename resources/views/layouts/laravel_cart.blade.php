@@ -15,14 +15,19 @@
     <!-- Css Styles -->
     <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('assets/css/font-awesome.min.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{asset('ssets/css/themify-icons.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('assets/css/themify-icons.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('assets/css/elegant-icons.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('assets/css/owl.carousel.min.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('assets/css/nice-select.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('assets/css/jquery-ui.min.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('assets/css/slicknav.min.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}" type="text/css">
-    @yield('include-the-link')
+    <!-- include the style -->
+    <link rel="stylesheet" href="{{asset('assets/alertifyjs/css/alertify.min.css')}}">
+
+    <!-- include a theme -->
+    <link rel="stylesheet" href="{{asset('assets/alertifyjs/css/themes/default.min.css')}}">
+    @yield('include-the-css')
 </head>
 
 <body>
@@ -39,6 +44,8 @@
     <script src="{{asset('assets/js/jquery.slicknav.js')}}"></script>
     <script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>
     <script src="{{asset('assets/js/main.js')}}"></script>
+    <!-- include the script -->
+    <script src="{{asset('assets/alertifyjs/alertify.min.js')}}"></script>
     @yield('include-the-script')
 </body>
 
