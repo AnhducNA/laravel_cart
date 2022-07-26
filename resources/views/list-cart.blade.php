@@ -27,7 +27,7 @@
                 <td class="qua-col first-row">
                     <div class="quantity">
                         <div class="pro-qty">
-                            <input id="quanty-item-{{$item['productInfo']->id}}" type="number" value="{{$item['quanty']}}" min=0>
+                            <input id="quanty-item-{{$item['productInfo']->id}}" type="number" value="{{$item['quanty']}}" min=1>
                         </div>
                     </div>
                 </td>
