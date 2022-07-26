@@ -61,4 +61,19 @@ class CartController extends Controller
         // echo count($newCart->products);
         return view('list-cart');
     }
+    function saveItemListCart(Request $req, $id, $quanty)
+    {
+        $oldCart = session('Cart') ? session('Cart') : null;
+        $newCart = new Cart($oldCart);
+        $newCart->saveItemListCart($id, $quanty);
+        if (count($newCart->products) > 0) {
+            $req->session()->put('Cart', $newCart);
+        } else if (count($newCart->products) == 0) {
+            $req->session()->remove('Cart');
+            $newCart->totalPrice == 0;
+            $newCart->totalQuanty == 0;
+        }
+        // echo count($newCart->products);
+        return view('list-cart');
+    }
 }

@@ -1,3 +1,4 @@
+<!-- list Cart -->
 @if(!empty(session('Cart')))
 <div class="cart-table">
     <table>
@@ -26,12 +27,14 @@
                 <td class="qua-col first-row">
                     <div class="quantity">
                         <div class="pro-qty">
-                            <input type="text" value="{{$item['quanty']}}">
+                            <input id="quanty-item-{{$item['productInfo']->id}}" type="number" value="{{$item['quanty']}}" min=0>
                         </div>
                     </div>
                 </td>
                 <td class="total-price first-row">{{number_format($item['price'])}} $</td>
-                <td class="close-td first-row"><i class="ti-save"></i></td>
+                <td class="close-td first-row">
+                    <i class="ti-save" onclick="saveItemListCart(<?php echo $item['productInfo']->id ?>)"></i>
+                </td>
                 <td class="close-td first-row">
                     <i class="ti-close" onclick="deleteItemListCart(<?php echo $item['productInfo']->id ?>);"></i>
                 </td>

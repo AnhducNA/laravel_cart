@@ -17,8 +17,9 @@ Route::get('/', 'App\Http\Controllers\CartController@index');
 Route::get('/cart/add/{id}', 'App\Http\Controllers\CartController@addCart');
 Route::get('/cart/delete/{id}', 'App\Http\Controllers\CartController@deleteItemCart');
 Route::get('/listCart', 'App\Http\Controllers\CartController@viewListCart')
-->name('listCart');
+    ->name('listCart');
 Route::get('/listCart/delete/{id}', 'App\Http\Controllers\CartController@deleteItemListCart');
+Route::get('/listCart/save/{id}/{quanty}', 'App\Http\Controllers\CartController@saveItemListCart');
 
 
 Route::get('/check', function () {

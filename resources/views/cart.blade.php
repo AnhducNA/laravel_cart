@@ -1,3 +1,4 @@
+<!-- icon Cart -->
 @if(!empty(session('Cart')))
 <div class="select-items">
     <table>
