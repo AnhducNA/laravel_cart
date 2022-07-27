@@ -11,7 +11,19 @@
                 <th>Total</th>
                 <th>Edit</th>
                 <th>Delete</th>
-
+            </tr>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th id="edit-all" class="close-td first-row">
+                    <i style="cursor:pointer ;" class="ti-save"></i>
+                </th>
+                <th id="delete-all" class="close-td first-row">
+                    <i style="cursor:pointer ;" class="ti-close"></i>
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -27,7 +39,7 @@
                 <td class="qua-col first-row">
                     <div class="quantity">
                         <div class="pro-qty">
-                            <input id="quanty-item-{{$item['productInfo']->id}}" type="number" value="{{$item['quanty']}}" min=1>
+                            <input data-id="{{$item['productInfo']->id}}" id="quanty-item-{{$item['productInfo']->id}}" type="number" value="{{$item['quanty']}}" min=1>
                         </div>
                     </div>
                 </td>

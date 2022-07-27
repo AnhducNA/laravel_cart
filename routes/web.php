@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,6 +21,7 @@ Route::get('/listCart', 'App\Http\Controllers\CartController@viewListCart')
     ->name('listCart');
 Route::get('/listCart/delete/{id}', 'App\Http\Controllers\CartController@deleteItemListCart');
 Route::get('/listCart/save/{id}/{quanty}', 'App\Http\Controllers\CartController@saveItemListCart');
+Route::post('/listCart/saveAll', 'App\Http\Controllers\CartController@saveAllListCart');
 
 
 Route::get('/check', function () {
