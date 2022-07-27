@@ -43,6 +43,8 @@ class CartController extends Controller
     }
     function viewListCart()
     {
+        // session()->remove('Cart');
+
         return view('list');
     }
 
@@ -58,7 +60,6 @@ class CartController extends Controller
             $newCart->totalPrice == 0;
             $newCart->totalQuanty == 0;
         }
-        // echo count($newCart->products);
         return view('list-cart');
     }
     function saveItemListCart(Request $req, $id, $quanty)
@@ -93,6 +94,13 @@ class CartController extends Controller
             }
         };
         // print_r($req->data);
+        return view('list-cart');
+    }
+    function deleteAllListCart(Request $req)
+    {
+        $oldCart = session('Cart') ? session('Cart') : null;
+
+        session()->remove('Cart');
         return view('list-cart');
     }
 }

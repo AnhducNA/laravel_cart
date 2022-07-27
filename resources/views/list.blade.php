@@ -127,6 +127,12 @@
 @endsection
 @section('include-the-script')
 <script>
+    function renderListCart(response) {
+        // console.log(response);
+        $('#list-cart').empty();
+        $('#list-cart').html(response);
+    }
+
     function deleteItemListCart($id) {
         $.ajax({
             url: 'listCart/delete/' + $id,
@@ -148,12 +154,7 @@
         });
     }
 
-    function renderListCart(response) {
-        // console.log(response);
-        $('#list-cart').empty();
-        $('#list-cart').html(response);
-    }
-    
+
     // saveAllListCart 
     $('#edit-all').on('click', function() {
         var list = [];
@@ -175,6 +176,17 @@
             }
         }).done(function(response) {
             location.reload();
+        });
+    });
+
+    // deleteAllListCart
+    $('#delete-all').on('click', function() {
+        $.ajax({
+            url: 'listCart/deleteAll',
+            type: 'GET',
+        }).done(function(response) {
+            renderListCart(response);
+            alertify.success('Đã xoá tất cả sản phẩm');
         });
     });
 </script>
